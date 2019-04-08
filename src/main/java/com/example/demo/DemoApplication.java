@@ -20,7 +20,7 @@ public class DemoApplication {
 	@GetMapping("/zz")
 	public String hello(@RequestParam(name="name") String name ,
 						@RequestParam(name="age") String age){
-		return "name= "+name+" age= "+age;
+		return "name = "+name+" age= "+age;
 	}
 	@GetMapping("/02")
 	public String hello02(@RequestParam(name="name") String name ,
