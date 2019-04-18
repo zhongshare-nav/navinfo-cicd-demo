@@ -4,6 +4,10 @@ pipeline {
 	
 	environment {
 	    REPOSITORY="${repo}"
+		IMAGE_REPO="${image_repo}"
+		IMAGE_NAME="${image_name}"
+		IMAGE_TAG="${image_tag}"
+		YAML_FILE="${yaml_file}"
 	}
 	
 	stages {
@@ -23,7 +27,14 @@ pipeline {
 		stage('构建镜像') {
 		    steps {
 			    echo "starting build iamge..."
-				sh "echo '构建镜像...'"
+				sh "build -t ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}"
+				sh "push ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}"
+			}
+		}
+        stage('发布服务') {
+		    steps {
+			    echo "starting server..."
+				sh "kubectl create -f ${YAML_FILE}"
 			}
 		}		
 	}
