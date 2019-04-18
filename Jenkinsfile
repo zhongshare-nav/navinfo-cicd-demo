@@ -3,11 +3,11 @@ pipeline {
     agent any
 	
 	environment {
-	    REPOSITORY="${repo}"
-		IMAGE_REPO="${image_repo}"
-		IMAGE_NAME="${image_name}"
-		IMAGE_TAG="${image_tag}"
-		YAML_FILE="${yaml_file}"
+	    REPOSITORY="${GIT_REPO}"
+		IMAGE_REPO="${IMAGE_REPO}"
+		IMAGE_NAME="${IMAGE_NAME}"
+		IMAGE_TAG="${IMAGE_TAG}"
+		YAML_FILE="${YAML_FILE}"
 	}
 	
 	stages {
