@@ -28,7 +28,7 @@ pipeline {
 		    steps {
 			    echo "starting build iamge..."
 				sh "docker build -t ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG} ."
-				sh "push ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}"
+				sh "docker push ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}"
 			}
 		}
         stage('发布服务') {
