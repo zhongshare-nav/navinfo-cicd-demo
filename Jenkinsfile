@@ -3,7 +3,7 @@ pipeline {
     agent any
 	
 	environment {
-	    REPOSITORY="ssh://git@gitlab01:2222/zhongxiang/zhongxiang01.git"
+	    REPOSITORY=${repo}
 	}
 	
 	stages {
