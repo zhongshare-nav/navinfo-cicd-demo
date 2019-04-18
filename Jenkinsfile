@@ -27,7 +27,7 @@ pipeline {
 		stage('开始构建镜像') {
 		    steps {
 			    echo "starting build iamge..."
-				sh "build -t ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}"
+				sh "docker build -t ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}"
 				sh "push ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}"
 			}
 		}
