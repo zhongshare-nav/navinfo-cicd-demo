@@ -3,7 +3,7 @@ pipeline {
     agent any
 	
 	environment {
-	    REPOSITORY=${repo}
+	    REPOSITORY="${repo}"
 	}
 	
 	stages {
