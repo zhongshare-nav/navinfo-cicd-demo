@@ -14,7 +14,7 @@ spec:
         image: ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: ${{SERVICE_PORT}}
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -23,7 +23,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: ${{SERVICE_PORT}}
-      nodePort: ${{NODE_PORT}}
+    - port: 8080
+      nodePort: 30001
   selector:
     app: ${DEPLOY_LABEL}
