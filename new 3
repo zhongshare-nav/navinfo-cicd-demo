@@ -1,17 +1,17 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: springboot-demo-deploy
+  name: ${DEPLOY_NAME}-deploy
 spec:
   replicas: 1
   template:
     metadata:
         labels:
-          app: springboot-demo
+          app: ${DEPLOY_LABEL}
     spec:
       containers:
-      - name: springboot-demo
-        image: springboot-demo
+      - name: ${DEPLOY_NAME}
+        image: ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -19,11 +19,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: springboot-demo-svc
+  name: {DEPLOY_NAME}-svc
 spec:
   type: NodePort
   ports:
     - port: 8080
       nodePort: 30001
   selector:
-    app: springboot-demo
+    app: ${DEPLOY_LABEL}
