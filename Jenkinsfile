@@ -34,7 +34,7 @@ pipeline {
         stage('发布服务') {
 		    steps {
 			    echo "starting server..."
-				sh "kubectl create -f ${YAML_FILE}"
+				kubernetesDeploy configs: 'springboot-demo.yaml', kubeConfig: [path: ''], kubeconfigId: 'b6c9e73e-9d43-4030-8ad3-d483f912ae53', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
 			}
 		}		
 	}
