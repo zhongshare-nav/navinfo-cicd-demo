@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: springboot-demo-deploy
@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: springboot-demo
-        image: springboot-demo:latest
+        image: hub.navinfo.com/devops/springboot-demo:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
