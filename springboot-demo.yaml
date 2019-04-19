@@ -19,7 +19,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: DEPLOY_NAME-svc
+  name: $DEPLOY_NAME-svc
 spec:
   type: NodePort
   ports:
