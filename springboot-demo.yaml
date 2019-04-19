@@ -1,17 +1,17 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: ${DEPLOY_NAME}-deploy
+  name: $DEPLOY_NAME-deploy
 spec:
   replicas: 1
   template:
     metadata:
         labels:
-          app: ${DEPLOY_LABEL}
+          app: $DEPLOY_LABEL
     spec:
       containers:
-      - name: ${DEPLOY_NAME}
-        image: ${IMAGE_REPO}/${IMAGE_NAME}:${IMAGE_TAG}
+      - name: $DEPLOY_NAME
+        image: $IMAGE_REPO/$IMAGE_NAME:$IMAGE_TAG
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -19,12 +19,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {DEPLOY_NAME}-svc
+  name: DEPLOY_NAME-svc
 spec:
   type: NodePort
   ports:
     - port: 8080
       nodePort: 30001
   selector:
-    app: ${DEPLOY_LABEL}
+    app: $DEPLOY_LABEL
     
